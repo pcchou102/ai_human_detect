@@ -2,7 +2,7 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-human-detect.streamlit.app)
 
-> 🚀 **立即體驗線上 Demo：** 部署完成後連結將顯示於此
+> 🚀 **立即體驗線上 Demo：** [Demo連結](https://aihumandetect-6rnr6r3kh9onmvejjdcdt3.streamlit.app/)
 
 > 📦 **GitHub Repository：** [https://github.com/pcchou102/ai_human_detect](https://github.com/pcchou102/ai_human_detect)
 
