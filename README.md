@@ -1,8 +1,10 @@
 # AI 文本偵測器
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-human-detect.streamlit.app)
 
-> 🚀 **立即體驗線上 Demo：** [https://your-app-name.streamlit.app](https://your-app-name.streamlit.app)
+> 🚀 **立即體驗線上 Demo：** 部署完成後連結將顯示於此
+
+> 📦 **GitHub Repository：** [https://github.com/pcchou102/ai_human_detect](https://github.com/pcchou102/ai_human_detect)
 
 基於 Streamlit 的 AI 生成文本偵測工具，結合 Perplexity（困惑度）與 Burstiness（節奏分析）進行智能判斷。
 
@@ -91,6 +93,53 @@ But hey, at least everyone laughed?
 ---
 
 ## 🌐 Streamlit Cloud 部署
+
+### 方法一：透過 Streamlit Cloud 網站部署（推薦）
+
+1. **訪問 Streamlit Cloud**
+   - 前往 [share.streamlit.io](https://share.streamlit.io)
+   - 使用 GitHub 帳號登入
+
+2. **建立新應用**
+   - 點擊 "New app"
+   - 選擇 Repository：`pcchou102/ai_human_detect`
+   - Branch：`main`
+   - Main file path：`ai_detector.py`
+   - App URL (custom subdomain)：`ai-human-detect`（或自訂名稱）
+
+3. **進階設定（可選）**
+   - Python version：3.9 或更高
+   - 其他設定保持預設
+
+4. **部署**
+   - 點擊 "Deploy!"
+   - 等待 1-2 分鐘完成部署
+   - 您的應用將在：`https://ai-human-detect.streamlit.app`
+
+### 方法二：使用 Streamlit CLI 部署
+
+```bash
+# 安裝 Streamlit
+pip install streamlit
+
+# 本機測試
+streamlit run ai_detector.py
+
+# 部署到 Streamlit Cloud（需先登入）
+streamlit deploy ai_detector.py
+```
+
+### 🔧 部署後設定
+
+部署成功後，請更新本 README 頂部的 Demo 連結：
+
+```markdown
+> 🚀 **立即體驗線上 Demo：** [https://您的應用名稱.streamlit.app](https://您的應用名稱.streamlit.app)
+```
+
+---
+
+## 🌐 Streamlit Cloud 部署（舊版說明）
 
 ### 1. 建立 GitHub Repository
 ```bash
