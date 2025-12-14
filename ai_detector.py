@@ -179,30 +179,34 @@ def main():
     # --- 主要內容區 ---
     col1, col2 = st.columns([1, 1])
     
+    # 定義範例文本
+    AI_EXAMPLE = "Artificial Intelligence represents a transformative branch of computer science. Furthermore, it aims to create intelligent machines capable of performing complex tasks. Moreover, these systems can analyze vast amounts of data efficiently. Consequently, AI has become increasingly important in modern technology."
+    HUMAN_EXAMPLE = "I totally messed up the meeting today! Omg, my cat literally jumped on the keyboard right in the middle of my presentation. So embarrassing. But hey, at least everyone laughed? Sometimes life just throws curveballs at you, ya know?"
+    
     with col1:
-        # 範例按鈕
+        # 範例按鈕 - 使用 callback 確保正確更新
         st.markdown("**📝 快速測試範例：**")
         b_col1, b_col2 = st.columns(2)
-        with b_col1:
-            if st.button("🤖 AI 生成範例", use_container_width=True, key="ai_example"):
-                st.session_state.example_text = "Artificial Intelligence represents a transformative branch of computer science. Furthermore, it aims to create intelligent machines capable of performing complex tasks. Moreover, these systems can analyze vast amounts of data efficiently. Consequently, AI has become increasingly important in modern technology."
-        with b_col2:
-            if st.button("✍️ 人類撰寫範例", use_container_width=True, key="human_example"):
-                st.session_state.example_text = "I totally messed up the meeting today! Omg, my cat literally jumped on the keyboard right in the middle of my presentation. So embarrassing. But hey, at least everyone laughed? Sometimes life just throws curveballs at you, ya know?"
         
-        # 文字框 - 使用 session_state 中的範例文字作為預設值
-        default_value = st.session_state.get('example_text', "")
+        def set_ai_example():
+            st.session_state.text_input = AI_EXAMPLE
+        
+        def set_human_example():
+            st.session_state.text_input = HUMAN_EXAMPLE
+        
+        with b_col1:
+            st.button("🤖 AI 生成範例", use_container_width=True, on_click=set_ai_example)
+        with b_col2:
+            st.button("✍️ 人類撰寫範例", use_container_width=True, on_click=set_human_example)
+        
+        # 文字框 - 使用 key 綁定到 session_state
         input_text = st.text_area(
             "請輸入英文文本",
-            value=default_value,
             height=300,
             placeholder="Paste English text here to analyze...",
-            help="支援至少 2-3 個句子的英文文本"
+            help="支援至少 2-3 個句子的英文文本",
+            key="text_input"
         )
-        
-        # 清除範例文字，避免每次都使用同一個範例
-        if 'example_text' in st.session_state and input_text == st.session_state.example_text:
-            del st.session_state.example_text
 
     # --- 分析按鈕 ---
     if st.button("🚀 開始分析", type="primary", use_container_width=True):
